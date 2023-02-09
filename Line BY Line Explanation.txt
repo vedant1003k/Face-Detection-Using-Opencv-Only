@@ -1,0 +1,69 @@
+LINE BY LINE EXPLANATION
+
+1.	Import the OpenCV library as "cv".
+•	This line imports the OpenCV library into the script and gives it an alias "cv" to make it easier to reference later on in the code.
+
+2.	Initialize the camera using the "cv.VideoCapture()" function and passing it an argument of "0". This means that the default camera of the device will be used.
+•	This line creates a VideoCapture object named "cap". The argument "0" means that the default camera of the device will be used. The VideoCapture 
+	object allows us to capture video frames from the camera.
+
+3.	Load the Haar cascades for detecting faces and eyes, "haarcascade_frontalface_default.xml" and "haarcascade_eye.xml", respectively.
+•	These lines load two Haar cascades, one for detecting faces and one for detecting eyes. A Haar cascade is a machine learning object detection method 
+	used to identify objects in images or video frames. The XML files contain the trained classifier data that will be used to detect faces and eyes in 
+	the video frames.
+
+4.	Start an infinite loop that continues until a "q" key is pressed.
+•	This line starts an infinite loop that will continue to run until a "q" key is pressed. This loop will be used to continuously process the
+	video frames and detect faces and eyes.
+
+5.	Capture the video frame using the "cap.read()" function.
+•	This line uses the "cap.read()" function to capture a video frame from the camera. The result is stored in two variables,
+	"" and "img", with "" representing the status of the frame (if it was successfully read or not) and "img" representing the actual video frame.
+
+6.	Convert the captured frame to grayscale using the "cv.cvtColor()" function.
+•	This line converts the video frame from a 3-channel color image to a single-channel grayscale image using the "cv.cvtColor()" function.
+	The grayscale image will be used as input to the Haar cascade classifiers.
+
+7.	Detect faces in the grayscale frame using the "face_cascade.detectMultiScale()" function.
+•	This line uses the "face_cascade.detectMultiScale()" function to detect faces in the grayscale frame. The "detectMultiScale()"
+	function returns a list of rectangles, each representing a face detected in the image.
+
+8.	Draw rectangles around the detected faces using the "cv.rectangle()" function.
+•	This line uses the "cv.rectangle()" function to draw rectangles around the faces detected in the previous step. 
+	The first two arguments are the starting and ending points of the rectangle, respectively. The next argument is the color of the rectangle, 
+	and the last argument is the thickness of the rectangle.
+
+9.	Add text to the image using the "cv.putText()" function, to indicate that these are faces.
+•	This line uses the "cv.putText()" function to add text to the image, indicating that the rectangles drawn in the previous step represent faces.
+	The first argument is the image to which the text will be added. The second argument is the text to be added. The third argument is the position
+	at which the text will be added. The fourth argument is the font to be used. The fifth argument is the font scale. The sixth argument
+ 
+10.	Detect eyes in the grayscale frame using the "eye_cascade.detectMultiScale()" function.
+•	This line uses the "eye_cascade.detectMultiScale()" function to detect eyes in the grayscale frame. The "detectMultiScale()"
+	function returns a list of rectangles, each representing an eye detected in the image.
+
+11.	Draw rectangles around the detected eyes using the "cv.rectangle()" function.
+•	This line uses the "cv.rectangle()" function to draw rectangles around the eyes detected in the previous step. 
+	The first two arguments are the starting and ending points of the rectangle, respectively. The next argument is the color of the rectangle,
+	 and the last argument is the thickness of the rectangle.
+
+12.	Add text to the image using the "cv.putText()" function, to indicate that these are eyes.
+•	This line uses the "cv.putText()" function to add text to the image, indicating that the rectangles drawn in the previous step represent eyes. 
+	The first argument is the image to which the text will be added. The second argument is the text to be added. The third argument is the position 
+	at which the text will be added. The fourth argument is the font to be used. The fifth argument is the font scale. The sixth argument is the color 
+	of the text. The last argument is the thickness of the text.
+
+13.	Display the processed image using the "cv.imshow()" function.
+•	This line uses the "cv.imshow()" function to display the processed image on the screen. The first argument is the name of the window in which the 
+	image will be displayed and the second argument is the image to be displayed.
+
+14.	Check if a "q" key is pressed using the "cv.waitKey()" function. If it is, break the loop.
+•	This line uses the "cv.waitKey()" function to check if the "q" key has been pressed. If the "q" key has been pressed, the loop will be broken. 
+	The "cv.waitKey()" function waits for a key event and returns the ASCII code of the key pressed.
+
+15.	Release the camera using the "cap.release()" function.
+•	This line releases the camera and frees up any resources it was using using the "cap.release()" function.
+
+16.	Close all windows using the "cv.destroyAllWindows()" function.
+•	This line closes all windows opened by OpenCV using the "cv.destroyAllWindows()" function.
+
